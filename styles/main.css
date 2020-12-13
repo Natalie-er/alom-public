@@ -558,7 +558,7 @@ td {
 
 .home-products {
   padding: var(--indent-2xl) 0;
-  background: #f1f3f3 url("./img/pattern.png") center/cover no-repeat;
+  background: #f1f3f3 url("../img/pattern.png") center/cover no-repeat;
 }
 
 .home-products__title {
