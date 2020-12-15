@@ -266,6 +266,25 @@ td {
   text-align: left;
 }
 
+button {
+  background-color: transparent;
+  font: inherit;
+}
+
+input {
+  width: 100%;
+  border: none;
+  background-color: transparent;
+  color: inherit;
+  font: inherit;
+  outline: none;
+}
+
+input::placeholder {
+  color: inherit;
+  font: inherit;
+}
+
 .container {
   width: 100%;
   max-width: var(--container);
@@ -388,6 +407,7 @@ td {
   width: fit-content;
   padding: 20px 40px;
   overflow: hidden;
+  z-index: 0;
   border: 1px solid #f50000;
   border-radius: 10px;
   text-align: center;
@@ -455,9 +475,85 @@ td {
   text-align: center;
 }
 
-.form__subtitle {
+.form__inner {
   max-width: var(--inner-container);
-  margin: auto;
+  margin: 0 auto;
+}
+
+.form__title {
+  margin-top: 0;
+  margin-bottom: var(--indent-s);
+}
+
+.form__subtitle {
+  max-width: 630px;
+  margin: 0 auto var(--indent-xl) auto;
+}
+
+.form__body {
+  width: 100%;
+}
+
+.form__line {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-field {
+  position: relative;
+  flex-basis: 100%;
+  display: inline-block;
+  padding: 12px 20px;
+}
+
+.form-field:before {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 1px;
+  background-color: #bdbdbd;
+}
+
+.form-field:after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  display: block;
+  width: 0;
+  height: 1px;
+  background-color: #212121;
+  transition: width 0.3s linear;
+}
+
+.form-field:hover:after,
+.form-field:focus-within:after {
+  width: 100%;
+}
+
+.form-field + .form-field {
+  margin-left: var(--indent-m);
+}
+
+.form__bottom {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 35px;
+}
+
+.form__agree {
+  max-width: 255px;
+  margin-right: 50px;
+  text-align: right;
+  font-size: 14px;
+}
+
+.form__agree .link {
+  font-weight: 400;
 }
 
 .cards {
@@ -506,7 +602,7 @@ td {
 
 .persons-item__image {
   position: relative;
-  width: 140px;
+  flex-shrink: 0;
   padding: 8px 0 0 8px;
   margin-right: var(--indent-s);
 }
@@ -532,6 +628,7 @@ td {
 .persons-item__info {
   display: flex;
   flex-direction: column;
+  padding: 25px 0;
 }
 
 .persons-item__name {
