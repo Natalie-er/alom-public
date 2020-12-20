@@ -174,6 +174,108 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+var fixedBody = {
+  add: function add() {
+    $('body').addClass('is-fixed');
+  },
+  remove: function remove() {
+    $('body').removeClass('is-fixed');
+  }
+};
+
+var setHeaderHeight = function setHeaderHeight() {
+  $('body').css('--header-top--height', "".concat($('.header').height(), "px"));
+};
+
+var submenu = {
+  button: '.js-submenu-button',
+  menu: null,
+  menuHeight: null,
+  init: function init() {
+    var _this = this;
+
+    this.menu = $('.js-menu');
+    this.menuHeight = $(this.menu).innerHeight();
+    $(this.button).each(function (index, button) {
+      var submenu = $(button).find('.js-submenu');
+      var buttonText = $(button).find('.menu__link').text();
+      $(submenu).prepend("<div class=\"submenu__back\">".concat(buttonText, "</div>"));
+      var buttonClose = $(submenu).find('.submenu__back');
+      var submenuHeight = $(submenu).innerHeight();
+      $(button).click(function () {
+        _this.open(button, submenu, submenuHeight);
+      });
+      $(buttonClose).click(function (e) {
+        e.stopPropagation();
+
+        _this.close(button, submenu, submenuHeight);
+      });
+    });
+  },
+  open: function open(button, submenu, submenuHeight) {
+    if (this.menuHeight > submenuHeight) {
+      $(submenu).css({
+        'min-height': this.menuHeight
+      });
+    } else {
+      $(this.menu).animate({
+        'min-height': submenuHeight
+      }, 200, 'linear');
+    }
+
+    setTimeout(function () {
+      $(button).addClass('submenu-is-open');
+    }, 200);
+  },
+  close: function close() {
+    var _this2 = this;
+
+    var button = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : $('.submenu-is-open');
+    var submenu = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : $('.submenu-is-open').find('.js-submenu');
+    var submenuHeight = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : $(submenu).innerHeight();
+    $(button).removeClass('submenu-is-open');
+    setTimeout(function () {
+      $(submenu).css({
+        'min-height': submenuHeight
+      });
+      $(_this2.menu).animate({
+        'min-height': _this2.menuHeight
+      }, 200, 'linear');
+    }, 200);
+  }
+};
+var menu = {
+  button: '.js-menu-button',
+  menuContainer: $('.js-menu-container'),
+  menuWrapper: $('.js-menu-wrapper'),
+  isOpenClass: 'menu-is-open',
+  isMenuOpen: false,
+  init: function init() {
+    var _this3 = this;
+
+    $(this.button).click(function () {
+      if (_this3.isMenuOpen) {
+        _this3.close();
+      } else {
+        _this3.open();
+      }
+    });
+    submenu.init();
+  },
+  open: function open() {
+    $(this.menuContainer).addClass(this.isOpenClass);
+    this.isMenuOpen = true;
+    fixedBody.add();
+  },
+  close: function close() {
+    $(this.menuContainer).removeClass(this.isOpenClass);
+    this.isMenuOpen = false;
+    fixedBody.remove();
+    setTimeout(function () {
+      submenu.close();
+    }, 300);
+  }
+};
 jquery__WEBPACK_IMPORTED_MODULE_0___default()(function () {
   $('input[type="tel"]').mask("+7 (X99) 999-99-99", {
     watchDataMask: true,
@@ -207,6 +309,11 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()(function () {
       }
     });
   });
+
+  if (screen.width < 1024) {
+    setHeaderHeight();
+    menu.init();
+  }
 });
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js")))
 
