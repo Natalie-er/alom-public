@@ -170,7 +170,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var jquery_mask_plugin__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(jquery_mask_plugin__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var bootstrap_validator__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! bootstrap-validator */ "./node_modules/bootstrap-validator/js/validator.js");
 /* harmony import */ var bootstrap_validator__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(bootstrap_validator__WEBPACK_IMPORTED_MODULE_2__);
- // window.$ = window.jQuery = jQuery;
 
 
 
@@ -184,7 +183,7 @@ var fixedBody = {
 };
 
 var setHeaderHeight = function setHeaderHeight() {
-  $('body').css('--header-top--height', "".concat($('.header').height(), "px"));
+  $('body').css('--header-top-height', "".concat($('.header').height(), "px"));
 };
 
 var submenu = {
