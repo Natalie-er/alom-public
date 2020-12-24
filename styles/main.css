@@ -753,7 +753,7 @@ input::placeholder {
   width: 7px;
   height: 11px;
   margin-right: var(--indent-3xs);
-  background: url("/img/icons/arrow-left.svg") center no-repeat;
+  background: url("../img/icons/arrow-left.svg") center no-repeat;
 }
 
 /* General - end */
@@ -933,7 +933,7 @@ input::placeholder {
   display: block;
   width: 12px;
   height: 6px;
-  background: url("/img/icons/arrow-down.svg") center no-repeat;
+  background: url("../img/icons/arrow-down.svg") center no-repeat;
   pointer-events: none;
 }
 
@@ -990,7 +990,7 @@ input::placeholder {
   width: 7px;
   height: 11px;
   margin-right: var(--indent-3xs);
-  background: url(/img/icons/arrow-left.svg) center no-repeat;
+  background: url("../img/icons/arrow-left.svg") center no-repeat;
 }
 
 /* Header - end */
@@ -1339,7 +1339,7 @@ input::placeholder {
     top: 50%;
     width: 6px;
     height: 12px;
-    background-image: url("/img/icons/arrow-right.svg");
+    background-image: url("../img/icons/arrow-right.svg");
     transform: translateY(-50%);
   }
 

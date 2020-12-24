@@ -814,7 +814,7 @@ input {
         width: 7px;
         height: 11px;
         margin-right: var(--indent-3xs);
-        background: url('/img/icons/arrow-left.svg') center no-repeat;
+        background: url('../img/icons/arrow-left.svg') center no-repeat;
     }
 }
 /* General - end */
@@ -1126,14 +1126,14 @@ input {
             $top: 0.5em,
             $left: calc(100% + 10px)
             );
-        background: url('/img/icons/arrow-down.svg') center no-repeat;
+        background: url('../img/icons/arrow-down.svg') center no-repeat;
         pointer-events: none;
 
         @include media($bpMax-1024) {
             top: 50%;
             width: 6px;
             height: 12px;
-            background-image: url('/img/icons/arrow-right.svg');
+            background-image: url('../img/icons/arrow-right.svg');
             transform: translateY(-50%);
         }
     }
@@ -1217,7 +1217,7 @@ input {
         width: 7px;
         height: 11px;
         margin-right: var(--indent-3xs);
-        background: url(/img/icons/arrow-left.svg) center no-repeat;
+        background: url('../img/icons/arrow-left.svg') center no-repeat;
     }
 }
 /* Header - end */
